@@ -20,17 +20,13 @@ You need to properly format the uptime. Refer to the comments mentioned in forma
 
 // TODO: Return the system's CPU
 Processor& System::Cpu() { 
-    //Kernel();
-    //OperatingSystem();
     cpu_=Processor();
     return cpu_;
-    // return LinuxParser::CpuUtilization();
  }
 
 // TODO: Return a container composed of the system's processes
 vector<Process>& System::Processes() { 
     vector<int> pids = LinuxParser::Pids();
-    //Process::_pids = pids;
     for(int _pid: pids){
        processes_.emplace_back(_pid);
 
@@ -47,7 +43,6 @@ std::string System::Kernel() { ;
 // Total used memory = MemTotal - MemFree
 float System::MemoryUtilization() { 
     return LinuxParser::MemoryUtilization();
-    //return 1.23;
 
  }
 
@@ -59,35 +54,15 @@ std::string System::OperatingSystem() {
 // TODO: Return the number of processes actively running on the system
 int System::RunningProcesses() {
     return LinuxParser::RunningProcesses();
-    //return LinuxParser::MemoryUtilization();
  }
 
 
 // TODO: Return the total number of processes on the system
-int System::TotalProcesses() { 
-    //return 0; 
+int System::TotalProcesses() {
     return LinuxParser::TotalProcesses();
 }
 
 // TODO: Return the number of seconds since the system started running
 long int System::UpTime() { 
     return LinuxParser::UpTime();
-    // long int time;
-    // time = Process().UpTime();
-    // return time;
-    //return 5;
-    // long int time;
-    // string uptime, idleTime;
-    // string line;
-    // std::ifstream stream(LinuxParser::kProcDirectory + LinuxParser::kUptimeFilename);
-    // if (stream.is_open()) {
-    //     std::getline(stream, line);
-    //     std::istringstream linestream(line);
-    //     while(linestream >> uptime >> idleTime){
-            
-    //         time = std::stol(uptime);}
-    //     }
-       
-    // return time;
-
     }
