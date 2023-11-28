@@ -17,7 +17,7 @@ int Process::Pid() { return _pid; }
 float Process::CpuUtilization() { 
     int uptime = UpTime();
     string line, pid, brackets, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, utime, stime, cutime, cstime, starttime, val16, val17, val18, val19, val20, val21, val22, val23;
-    float ans ;
+    float ans  = 0;
     std::ifstream filestream(LinuxParser::kProcDirectory + to_string(_pid) +  LinuxParser::kStatFilename);
     if (filestream.is_open()) {
         std::getline(filestream, line);
@@ -54,4 +54,4 @@ long int Process::UpTime() {
 
 // TODO: Overload the "less than" comparison operator for Process objects
 // REMOVE: [[maybe_unused]] once you define the function
-bool Process::operator<(Process const& a) const { return true; }
+//bool Process::operator<(Process const& a) const { return true; }

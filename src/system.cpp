@@ -18,6 +18,11 @@ using std::vector;
 
 You need to properly format the uptime. Refer to the comments mentioned in format. cpp for formatting the uptime.*/
 
+System::System(){
+    OS_ = LinuxParser::OperatingSystem();
+    Kernel_ = LinuxParser::Kernel();
+};
+
 // TODO: Return the system's CPU
 Processor& System::Cpu() { 
     cpu_=Processor();
@@ -36,7 +41,7 @@ vector<Process>& System::Processes() {
 
 // TODO: Return the system's kernel identifier (string)
 std::string System::Kernel() { ;
-    return LinuxParser::Kernel();
+    return Kernel_;
     }
 
 // TODO: Return the system's memory utilization
@@ -48,7 +53,7 @@ float System::MemoryUtilization() {
 
 // TODO: Return the operating system name
 std::string System::OperatingSystem() { 
-    return LinuxParser::OperatingSystem();  
+    return OS_;  
 }
 
 // TODO: Return the number of processes actively running on the system
